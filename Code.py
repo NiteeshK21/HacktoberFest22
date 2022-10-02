@@ -1,3 +1,4 @@
+from pickle import GLOBAL
 import tkinter as tk
 from PIL import ImageTk,Image
 win=tk.Tk()
@@ -12,6 +13,8 @@ pic.grid(row=1,column=0,columnspan=2,rowspan=2,sticky=tk.E,padx=5,pady=5)
 win.configure(bg="black")
 Bill_label=tk.Label(win,text="WELCOME TO HOTEL NSR",bg="black",fg="Snow",font=("Algerian",55))
 Bill_label.grid(row=0,column=0,sticky="NSWE")
+rn = 100
+rntype=''
 def start():
     app=tk.Tk()
     app.title("Services")
@@ -43,67 +46,84 @@ def start():
         Out_var=tk.StringVar()
         Out_entry=tk.Entry(win,width=50,textvariable=Out_var)
         Out_entry.grid(row=3,column=1)
+        Room_label=tk.Label(win,text="We have the following Rooms for you,Choose one:-",font=("Comic Sans MS",25),bg="black",fg="white")
+        Room_label.grid(row=4,column=1,sticky=tk.W)
+        def newrn():
+            global rn
+            try:
+                with open("Customer Data.txt", "r") as f:
+                    rn=int(f.readlines()[-1].split('Room No.-')[1][:-1])+1
+            except:
+                rn=100
+        def RoomA():
+            win=tk.Tk()
+            win.title("Room")
+            win.config(bg="White")
+            A_label=tk.Label(win,text=f"YOUR ROOM NUMBER IS {rn}-A\n                                 thank you.",bg="White",fg="Black",font=("Algerian",30))
+            A_label.grid(row=0,column=0,sticky=tk.W)
+            def Okay():
+                global rntype
+                rntype='A'
+                win.destroy()
+            Okay_button=tk.Button(win,text="OK✓",bg="Lightgreen",font=("Algerian",15),command=Okay)
+            Okay_button.grid(row=1,column=1)
+        A_button=tk.Button(win,text="Room Type A COSTS RS.6000 PN\-",font=("Comic Sans MS",13),command=RoomA)
+        A_button.grid(row=5,column=1)
+        def RoomB():
+            win=tk.Tk()
+            win.title("Room")
+            win.configure(bg="white")
+            newrn()
+            A_label=tk.Label(win,text=f"YOUR ROOM NUMBER IS {rn}-B\n                                 thank you.",bg="White",fg="Black",font=("Algerian",30))
+            A_label.grid(row=0,column=0,sticky=tk.W)
+            def Okay():
+                global rntype
+                rntype='B'
+                win.destroy()
+            Okay_button=tk.Button(win,text="OK✓",bg="Lightgreen",font=("Algerian",15),command=Okay)
+            Okay_button.grid(row=1,column=1)
+        B_button=tk.Button(win,text="Room Type B COSTS RS.5000 PN\-",font=("Comic Sans MS",13),command=RoomB)
+        B_button.grid(row=6,column=1)
+        def RoomC():
+            win=tk.Tk()
+            win.title("Room")
+            win.configure(bg="white")
+            newrn()
+            C_label=tk.Label(win,text=f"YOUR ROOM NUMBER IS {rn}-C\n                                 thank you.",bg="white",fg="Black",font=("Algerian",30))
+            C_label.grid(row=0,column=0,sticky=tk.W)
+            def Okay():
+                global rntype
+                rntype='C'
+                win.destroy()
+            Okay_button=tk.Button(win,text="OK✓",bg="Lightgreen",font=("Algerian",15),command=Okay)
+            Okay_button.grid(row=1,column=1)
+        C_button=tk.Button(win,text="Room Type C COSTS RS.4000 PN\-",font=("Comic Sans MS",13),command=RoomC)
+        C_button.grid(row=7,column=1)
+        def RoomD():
+            win=tk.Tk()
+            win.title("Room")
+            win.configure(bg="white")
+            newrn()
+            D_label=tk.Label(win,text=f"YOUR ROOM NUMBER IS {rn}-D\n                                 thank you.",bg="White",fg="Black",font=("Algerian",30))
+            D_label.grid(row=0,column=0,sticky=tk.W)
+            def Okay():
+                global rntype
+                rntype='D'
+                win.destroy()
+            Okay_button=tk.Button(win,text="OK✓",bg="Lightgreen",font=("Algerian",15),command=Okay)
+            Okay_button.grid(row=1,column=1)
+        D_button=tk.Button(win,text="Room Type D COSTS RS.3000 PN\-",font=("Comic Sans MS",13),command=RoomD)
+        D_button.grid(row=8,column=1)
         def Okay():
             win.destroy()
         Okay_button=tk.Button(win,text="Close",bg="Red",fg="white",font=("Algerian",15),command=Okay)
-        Okay_button.grid(row=4,column=5)
+        Okay_button.grid(row=9,column=2)
         def OK():
-            text ="\n"+"Name of Customer-"+Cd_entry.get() +"  City-"+Add_entry.get() +"  In date-"+In_entry.get() +"  Out Date-"+Out_entry.get()
+            text ="\n"+"Name of Customer-"+Cd_entry.get() +"  City-"+Add_entry.get() +"  In date-"+In_entry.get() +"  Out Date-"+Out_entry.get()+"  Room No.-"+str(rn)+rntype
             with open("Customer Data.txt", "a") as f:
                 f.write(text)
-
-            Room_label=tk.Label(win,text="We have the following Rooms for you,Choose one:-",font=("Comic Sans MS",25),bg="black",fg="white")
-            Room_label.grid(row=5,column=1,sticky=tk.W)
-            def RoomA():
-                win=tk.Tk()
-                win.title("Room")
-                win.config(bg="White")
-                A_label=tk.Label(win,text="YOUR ROOM NUMBER IS 101-A\n                                 thank you.",bg="White",fg="Black",font=("Algerian",30))
-                A_label.grid(row=0,column=0,sticky=tk.W)
-                def Okay():
-                    win.destroy()
-                Okay_button=tk.Button(win,text="OK✓",bg="Lightgreen",font=("Algerian",15),command=Okay)
-                Okay_button.grid(row=1,column=2)
-            A_button=tk.Button(win,text="Room Type A COSTS RS.6000 PN\-",font=("Comic Sans MS",13),command=RoomA)
-            A_button.grid(row=6,column=1)
-            def RoomB():
-                win=tk.Tk()
-                win.title("Room")
-                win.configure(bg="white")
-                A_label=tk.Label(win,text="YOUR ROOM NUMBER IS 101-B\n                                 thank you.",bg="White",fg="Black",font=("Algerian",30))
-                A_label.grid(row=0,column=0,sticky=tk.W)
-                def Okay():
-                    win.destroy()
-                Okay_button=tk.Button(win,text="OK✓",bg="Lightgreen",font=("Algerian",15),command=Okay)
-                Okay_button.grid(row=1,column=1)
-            B_button=tk.Button(win,text="Room Type B COSTS RS.5000 PN\-",font=("Comic Sans MS",13),command=RoomB)
-            B_button.grid(row=7,column=1)
-            def RoomC():
-                win=tk.Tk()
-                win.title("Room")
-                win.configure(bg="white")
-                C_label=tk.Label(win,text="YOUR ROOM NUMBER IS 101-C\n                                 thank you.",bg="white",fg="Black",font=("Algerian",30))
-                C_label.grid(row=0,column=0,sticky=tk.W)
-                def Okay():
-                    win.destroy()
-                Okay_button=tk.Button(win,text="OK✓",bg="Lightgreen",font=("Algerian",15),command=Okay)
-                Okay_button.grid(row=1,column=1)
-            C_button=tk.Button(win,text="Room Type C COSTS RS.4000 PN\-",font=("Comic Sans MS",13),command=RoomC)
-            C_button.grid(row=8,column=1)
-            def RoomD():
-                win=tk.Tk()
-                win.title("Room")
-                win.configure(bg="white")
-                D_label=tk.Label(win,text="YOUR ROOM NUMBER IS 101-D\n                                 thank you.",bg="White",fg="Black",font=("Algerian",30))
-                D_label.grid(row=0,column=0,sticky=tk.W)
-                def Okay():
-                    win.destroy()
-                Okay_button=tk.Button(win,text="OK✓",bg="Lightgreen",font=("Algerian",15),command=Okay)
-                Okay_button.grid(row=1,column=1)
-            D_button=tk.Button(win,text="Room Type D COSTS RS.3000 PN\-",font=("Comic Sans MS",13),command=RoomD)
-            D_button.grid(row=9,column=1)
         Ok_button=tk.Button(win,text="Ok✓",bg="Lightgreen",font=("Algerian",15),command=OK)
-        Ok_button.grid(row=4,column=1)
+        Ok_button.grid(row=9,column=1)
     Cd_button=tk.Button(app,text="           GET A ROOM             ",font=("Algerian",25),bg="black",fg="magenta2",command=Cd)
     Cd_button.grid(row=2,column=0)
     def Rt():
