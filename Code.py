@@ -59,6 +59,7 @@ def start():
             win=tk.Tk()
             win.title("Room")
             win.config(bg="White")
+            newrn()
             A_label=tk.Label(win,text=f"YOUR ROOM NUMBER IS {rn}-A\n                                 thank you.",bg="White",fg="Black",font=("Algerian",30))
             A_label.grid(row=0,column=0,sticky=tk.W)
             def Okay():
