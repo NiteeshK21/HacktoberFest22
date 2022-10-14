@@ -51,7 +51,7 @@ def start():
         def newrn():
             global rn
             try:
-                with open("Customer Data.txt", "r") as f:
+                with open("Customer Data.csv", "r") as f:
                     rn=int(f.readlines()[-1].split('Room No.-')[1][:-1])+1
             except:
                 rn=100
@@ -121,7 +121,7 @@ def start():
         Okay_button.grid(row=9,column=2)
         def OK():
             text ="\n"+"Name of Customer-"+Cd_entry.get() +"  City-"+Add_entry.get() +"  In date-"+In_entry.get() +"  Out Date-"+Out_entry.get()+"  Room No.-"+str(rn)+rntype
-            with open("Customer Data.txt", "a") as f:
+            with open("Customer Data.csv", "a") as f:
                 f.write(text)
         Ok_button=tk.Button(win,text="Ok✓",bg="Lightgreen",font=("Algerian",15),command=OK)
         Ok_button.grid(row=9,column=1)
@@ -280,7 +280,7 @@ def start():
     def Bill():
         app.destroy()
         text = " "
-        with open("Restauant Bill.txt", "w") as Bi:
+        with open("Restauant Bill.csv", "w") as Bi:
             Bi.write(text)
         win=tk.Tk()
         win.title("Restaurant bill")
@@ -297,7 +297,7 @@ def start():
             def Cw():
                 try:
                     tezt = "\n"+str(int(W_entry.get())*10)
-                    with open("Restauant Bill.txt", "a") as w:
+                    with open("Restauant Bill.csv", "a") as w:
                         w.write(tezt)
                     global Cw
                     Cw=int(W_entry.get())*10
@@ -322,7 +322,7 @@ def start():
             def Ct():
                 try:
                     tezt = "\n"+str(int(T_entry.get())*10)
-                    with open("Restauant Bill.txt", "a") as t:
+                    with open("Restauant Bill.csv", "a") as t:
                         t.write(tezt)
                     Ct=int(T_entry.get())*10
                     Ct1=("Rs.",(Ct))
@@ -346,7 +346,7 @@ def start():
             def Cs():
                 try:
                     tezt = "\n"+str(int(S_entry.get())*20)
-                    with open("Restauant Bill.txt", "a") as s:
+                    with open("Restauant Bill.csv", "a") as s:
                         s.write(tezt)
                     global Cs
                     Cs=int(S_entry.get())*20
@@ -372,7 +372,7 @@ def start():
             def Cb():
                 try:
                     tezt = "\n"+str(int(B_entry.get())*90)
-                    with open("Restauant Bill.txt", "a") as b:
+                    with open("Restauant Bill.csvF", "a") as b:
                         b.write(tezt)
                     global Cb
                     Cb=int(B_entry.get())*90
@@ -397,7 +397,7 @@ def start():
             def Cl():
                 try:
                     tezt = "\n"+str(int(L_entry.get())*110)
-                    with open("Restauant Bill.txt", "a") as l:
+                    with open("Restauant Bill.csv", "a") as l:
                         l.write(tezt)
                     global Cl
                     Cl=int(L_entry.get())*110
@@ -422,7 +422,7 @@ def start():
             def Cd():
                 try:
                     tezt = "\n"+str(int(D_entry.get())*150)
-                    with open("Restauant Bill.txt", "a") as d:
+                    with open("Restauant Bill.csv", "a") as d:
                         d.write(tezt)
                     global Cd
                     Cd=int(D_entry.get())*150
@@ -438,7 +438,7 @@ def start():
         D_button=tk.Button(win,text="     Dinner@Rs.150     ",bg="LightBlue",font=("Comic Sans MS",15),command=Dinner)
         D_button.grid(row=6,column=0)
         def Total():
-            with open("Restauant Bill.txt", "r") as Bill:
+            with open("Restauant Bill.csv", "r") as Bill:
                 Sum0=Bill.readlines()
                 Len=len(Sum0)
                 Sum1=0
