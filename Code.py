@@ -15,18 +15,18 @@ Bill_label=tk.Label(win,text="WELCOME TO HOTEL NSR",bg="black",fg="Snow",font=("
 Bill_label.grid(row=0,column=0,sticky="NSWE")
 rn = 100
 rntype=''
-def start():
+def start(): #function that starts the whole program system. 
     app=tk.Tk()
     app.title("Services")
     app.geometry("+450+350")
     app.configure(bg="black")
-    def Cd():
+    def Cd(): #function to accept customer data to allocate rooms. 
         app.destroy()
         win=tk.Tk()
-        win.title("Customer Data")
-        win.geometry("1190x420")
+        win.title("Customer Data") #title bar for room allocation. 
+        win.geometry("1190x420") #setting geometry for windows. 
         win.configure(bg="black")
-        Cd_label=tk.Label(win,text="Enter your name",font=("Comic Sans MS",15))
+        Cd_label=tk.Label(win,text="Enter your name",font=("Comic Sans MS",15)) #label to accept name. 
         Cd_label.grid(row=0,column=0,sticky=tk.W)
         Cd_var=tk.StringVar()
         Cd_entry=tk.Entry(win,width=50,textvariable=Cd_var)
@@ -48,7 +48,7 @@ def start():
         Out_entry.grid(row=3,column=1)
         Room_label=tk.Label(win,text="We have the following Rooms for you,Choose one:-",font=("Comic Sans MS",25),bg="black",fg="white")
         Room_label.grid(row=4,column=1,sticky=tk.W)
-        def newrn():
+        def newrn(): #reading data from database. 
             global rn
             try:
                 with open("Customer Data.csv", "r") as f:
