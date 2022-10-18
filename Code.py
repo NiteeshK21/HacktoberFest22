@@ -15,6 +15,21 @@ Bill_label=tk.Label(win,text="WELCOME TO HOTEL NSR",bg="black",fg="Snow",font=("
 Bill_label.grid(row=0,column=0,sticky="NSWE")
 rn = 100
 rntype=''
+# function which return reverse of a string
+
+def isPalindrome(s):
+	return s == s[::-1]
+
+
+# Driver code
+s = "malayalam"
+ans = isPalindrome(s)
+
+if ans:
+	print("Yes")
+else:
+	print("No")
+
 def start(): #function that starts the whole program system. 
     app=tk.Tk()
     app.title("Services")
