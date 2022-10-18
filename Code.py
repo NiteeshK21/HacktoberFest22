@@ -15,6 +15,16 @@ Bill_label=tk.Label(win,text="WELCOME TO HOTEL NSR",bg="black",fg="Snow",font=("
 Bill_label.grid(row=0,column=0,sticky="NSWE")
 rn = 100
 rntype=''
+def binaryTodecimal(n):#Binary to decimal like:-- print( binaryTodecimal(101) ) :--(5)
+    decimal = 0
+    power = 1
+    while n>0:
+        rem = n%10
+        n = n//10
+        decimal += rem*power
+        power = power*2
+        
+    return decimal
 # function which return reverse of a string
 
 def isPalindrome(s):
