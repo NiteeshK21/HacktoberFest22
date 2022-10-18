@@ -1,12 +1,12 @@
-from pickle import GLOBAL
-import tkinter as tk
-from PIL import ImageTk,Image
-win=tk.Tk()
-win.title("Welcome")
-win.geometry("980x600")
-path="Hotel.jpg"
-image=Image.open(path)
-image=image.resize((980,600),Image.ANTIALIAS)
+from pickle import GLOBAL #importing pickle module for searilising and desearilising objects.
+import tkinter as tk #importing tkinter for using graphical user interface in python.
+from PIL import ImageTk,Image #imported ImageTk and Image for adding images in tkinter window.
+win=tk.Tk() #Creating a new window in tkinter
+win.title("Welcome") #set title of window as Welcome
+win.geometry("980x600") #setting geometry of the Window
+path="Hotel.jpg" #set the path of image
+image=Image.open(path) #opening image from path
+image=image.resize((980,600),Image.ANTIALIAS) #setting size of image
 img=ImageTk.PhotoImage(image)
 pic=tk.Label(win,image=img,bg="black")
 pic.grid(row=1,column=0,columnspan=2,rowspan=2,sticky=tk.E,padx=5,pady=5)
