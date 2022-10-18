@@ -469,7 +469,7 @@ def start(): #function that starts the whole program system.
                 Okay_button=tk.Button(win,text="OK✓",bg="Lightgreen",font=("Algerian",15),command=Okay)
                 Okay_button.grid(row=1,column=1)
         T_button=tk.Button(win,text="Total",bg="Lightgreen",font=("Algerian",15),command=Total)
-        T_button.grid(row=7,column=1)
+        T_button.grid(row=7,column=1) #sample data
         def Okay():
             win.destroy()
         Okay_button=tk.Button(win,text="Close",bg="Red",fg="white",font=("Algerian",15),command=Okay)
