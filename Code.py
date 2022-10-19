@@ -473,6 +473,17 @@ def start(): #function that starts the whole program system.
     Bill_button=tk.Button(app,text="    MOVE TO RESTAURANT    ",font=("Algerian",25),bg="black",fg="magenta2",command=Bill)
     Bill_button.grid(row=5,column=0)
 
+    x1=int(input("enter x1 : "))
+
+x2=int(input("enter x2 : "))
+
+y1=int(input("enter y1 : "))
+
+y2=int(input("enter y2 : "))
+
+result= ((((x2 - x1 )**2) + ((y2-y1)**2) )**0.5)
+
+print("distance between",(x1,x2),"and",(y1,y2),"is : ",result)
 Title_button=tk.Button(win,text="Tap to view services",bg="LightGreen",font=("Algerian",18),command=start)
 Title_button.grid(row=1,column=0)
 win.mainloop()
