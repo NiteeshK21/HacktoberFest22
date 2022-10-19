@@ -115,6 +115,17 @@ def start(): #function that starts the whole program system.
             Okay_button.grid(row=1,column=1)
         D_button=tk.Button(win,text="Room Type D COSTS RS.3000 PN\-",font=("Comic Sans MS",13),command=RoomD)
         D_button.grid(row=8,column=1)
+        x1=int(input("enter x1 : "))
+
+        x2=int(input("enter x2 : "))
+
+        y1=int(input("enter y1 : "))
+
+        y2=int(input("enter y2 : "))
+
+        result= ((((x2 - x1 )**2) + ((y2-y1)**2) )**0.5)
+
+        print("distance between",(x1,x2),"and",(y1,y2),"is : ",result)
         def Okay():
             win.destroy()
         Okay_button=tk.Button(win,text="Close",bg="Red",fg="white",font=("Algerian",15),command=Okay)
