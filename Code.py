@@ -56,7 +56,7 @@ def start(): #function that starts the whole program system.
                     rn=int(f.readlines()[-1].split('Room No.-')[1][:-1])+1
             except:
                 rn=100
-        def RoomA():
+        def RoomA(): #function for allocating room
             win=tk.Tk()
             win.title("Room")
             win.config(bg="White")
