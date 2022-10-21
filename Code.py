@@ -1,6 +1,8 @@
 from pickle import GLOBAL #importing pickle module for searilising and desearilising objects.
 import tkinter as tk #importing tkinter for using graphical user interface in python.
 from PIL import ImageTk,Image #imported ImageTk and Image for adding images in tkinter window.
+
+
 win=tk.Tk() #Creating a new window in tkinter
 win.title("Welcome") #set title of window as Welcome
 win.geometry("980x600") #setting geometry of the Window
