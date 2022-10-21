@@ -4,7 +4,9 @@
 
 int create_account();
 int login();
-
+int password_check();
+void menu1();
+int menu2();
 struct account_details
 {
     char username[10];
@@ -12,6 +14,23 @@ struct account_details
     int num_of_sub;
     char subs[10][15];
 }acc;
+
+
+int password_check(char psd[13])
+{
+    char password[13];
+    printf("Enter the password:");
+    scanf("%s",&password);
+    if(strcmp(password,psd)==0)
+    {
+        return 1;
+    }
+    else
+    {
+        printf("\n!!!!The password you entered is incorrect.Please enter it again.!!!!\n");
+        return password_check(psd);
+    }
+}
 
 int create_account()
 {
@@ -50,8 +69,27 @@ int create_account()
 }
 int login()
 {
-    // to be coded later
-    printf("TBA");
+    printf("\n\n\n\t\t\t\t\t\t||||LOGIN||||\n\n");
+    char usname[10];
+    char pswd[13];
+    FILE *fp1;
+    fp1=fopen("new.txt","r");
+    fread(&acc,sizeof(acc),1,fp1);
+    printf("Enter the username:");
+    scanf("%s",&usname);
+    if(strcmp(acc.username,usname)==0)
+    {
+        if((password_check(acc.password))==1)
+        {
+           return menu2();
+        }
+    }
+    else
+    {
+        printf("User doesnot exist. Please create new account!\n");
+        return create_account();
+    }
+    fclose(fp1);
 }
 
 void menu1()
@@ -72,6 +110,12 @@ void menu1()
         printf("");
     }
 
+}
+
+int menu2(){
+    printf("Menu 2");
+    // to be added later
+    return 0;
 }
 
 int main()
