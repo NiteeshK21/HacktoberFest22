@@ -14,3 +14,8 @@ Hi there! We're thrilled that you'd like to contribute to Hacktoberfest. Your he
 - Write tests.
 - Keep your change as focused as possible. If there are multiple changes you would like to make that are not dependent upon each other, consider submitting them as separate pull requests.
 - Write a good commit message.
+
+## Thanks to all the contributors ❤️
+<a href = "https://github.com/NiteeshK21/HacktoberFest22/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=NiteeshK21/HacktoberFest22"/>
+</a>
